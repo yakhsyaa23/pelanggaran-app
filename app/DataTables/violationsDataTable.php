@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\violation;
+use App\Models\Violation;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -17,7 +17,7 @@ class violationsDataTable extends DataTable
     /**
      * Build the DataTable class.
      *
-     * @param QueryBuilder<violation> $query Results from query() method.
+     * @param QueryBuilder<Violation> $query Results from query() method.
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
@@ -35,13 +35,12 @@ class violationsDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      *
-     * @return QueryBuilder<violation>
+     * @return QueryBuilder<Violation>
      */
-    public function query(violation $model): QueryBuilder
+    public function query(Violation $model): QueryBuilder
     {
         return $model->newQuery()
-            ->leftJoin('students', 'violations.nis', '=', 'students.nis')
-            ->select('violations.*', 'students.kelas');
+            ->select('violations.*');
     }
 
     /**
@@ -78,7 +77,7 @@ class violationsDataTable extends DataTable
                     ->name('violations.id'),
             Column::make('nis')->name('violations.nis'),
             Column::make('nama_siswa')->name('violations.nama_siswa'),
-            Column::make('kelas')->title('Kelas')->name('students.kelas'),
+            Column::make('kelas')->title('Kelas'),
             Column::make('tgl_pelanggaran')->title('Tanggal Pelanggaran'),
             Column::make('kategori_pelanggaran'),
             Column::make('point_pelanggaran'),

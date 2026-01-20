@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nis');
             $table->string('nama_siswa');
+            $table->string('kelas');
             $table->date('tgl_pelanggaran');
             $table->enum('kategori_pelanggaran', ['Ringan', 'Sedang', 'Berat'])->default('Ringan');
             $table->integer('point_pelanggaran');

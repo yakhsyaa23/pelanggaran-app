@@ -59,27 +59,28 @@ class ViolationController extends Controller
 
        ]);
        
-       $studentExists = Student::where('nis', $request->nis)->where('nama_siswa', $request->nama_siswa)->exists();
-       if (!$studentExists) {
+       $student = Student::where('nis', $request->nis)->where('nama_siswa', $request->nama_siswa)->first();
+       if (!$student) {
            return redirect()->back()->withInput()->withErrors(['nis' => 'Data siswa dengan NIS dan Nama tersebut tidak ditemukan di database siswa.']);
        }
 
-       $existingStudent = Violation::where('nis', $request->nis)->first();
-       if ($existingStudent && $existingStudent->nama_siswa !== $request->nama_siswa) {
-           return redirect()->back()->withInput()->withErrors(['nama_siswa' => 'NIS ' . $request->nis . ' sudah terdaftar dengan nama ' . $existingStudent->nama_siswa . '. Harap gunakan nama yang sesuai.']);
+       $existingViolation = Violation::where('nis', $request->nis)->first();
+       if ($existingViolation && $existingViolation->nama_siswa !== $request->nama_siswa) {
+           return redirect()->back()->withInput()->withErrors(['nama_siswa' => 'NIS ' . $request->nis . ' sudah terdaftar dengan nama ' . $existingViolation->nama_siswa . '. Harap gunakan nama yang sesuai.']);
        }
 
        $totalPointSebelumnya = Violation::where('nis', $request->nis)->sum('point_pelanggaran');
-       $totalPontBaru = $totalPointSebelumnya + $request->point_pelanggaran;
+       $totalPointBaru = $totalPointSebelumnya + $request->point_pelanggaran;
 
 
        $data = [
            'nis' => $request->nis,
            'nama_siswa' => $request->nama_siswa,
+           'kelas' => $student->kelas,
            'kategori_pelanggaran' => $request->kategori_pelanggaran,
            'tgl_pelanggaran' => $request->tgl_pelanggaran,
            'point_pelanggaran' => $request->point_pelanggaran,
-           'total_point' => $totalPontBaru,
+           'total_point' => $totalPointBaru,
            'deskripsi_pelanggaran' => $request->deskripsi_pelanggaran,
            'slug' => Str::slug($request->nama_siswa),
        ];   
@@ -123,14 +124,17 @@ class ViolationController extends Controller
             'deskripsi_pelanggaran' => 'required',
         ]);
 
-        $existingStudent = Violation::where('nis', $request->nis)->first();
-        if ($existingStudent && $existingStudent->nama_siswa !== $request->nama_siswa) {
-            return redirect()->back()->withInput()->withErrors(['nama_siswa' => 'NIS ' . $request->nis . ' sudah terdaftar dengan nama ' . $existingStudent->nama_siswa . '. Harap gunakan nama yang sesuai.']);
+        $existingViolation = Violation::where('nis', $request->nis)->first();
+        if ($existingViolation && $existingViolation->nama_siswa !== $request->nama_siswa) {
+            return redirect()->back()->withInput()->withErrors(['nama_siswa' => 'NIS ' . $request->nis . ' sudah terdaftar dengan nama ' . $existingViolation->nama_siswa . '. Harap gunakan nama yang sesuai.']);
         }
+
+        $student = Student::where('nis', $request->nis)->where('nama_siswa', $request->nama_siswa)->first();
 
         $violation = Violation::findOrFail($id);
         $violation->nis=$request->nis;
         $violation->nama_siswa=$request->nama_siswa;
+        $violation->kelas = $student ? $student->kelas : $violation->kelas;
         $violation->kategori_pelanggaran=$request->kategori_pelanggaran;
         $violation->tgl_pelanggaran=$request->tgl_pelanggaran;
         $violation->point_pelanggaran=$request->point_pelanggaran;
