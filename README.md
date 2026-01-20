@@ -1,7 +1,6 @@
 Sistem Pelanggaran Siswa 
 
-Nama Anggota Kelaompok
-Nama : ->Evi Damayanti (240030114)
+Nama Anggota Kelaompok : ->Evi Damayanti (240030114)
        ->Wahuwa Yakhsyaa (240030283)
        ->I Gusti Agung Ngurah Adhitya Prawira (240030061)
 
