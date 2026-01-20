@@ -68,7 +68,7 @@ class violationsDataTable extends DataTable
      */
     public function getColumns(): array
     {
-        return [
+        $columns = [
             Column::make('id')
                     ->title('#')
                     ->render('meta.row + meta.settings._iDisplayStart + 1;')
@@ -80,12 +80,17 @@ class violationsDataTable extends DataTable
             Column::make('point_pelanggaran'),
             Column::make('total_point'),
             Column::make('deskripsi_pelanggaran'),
-            Column::computed('action')
+        ];
+
+        if (auth()->check() && in_array(optional(auth()->user()->role)->role_name, ['admin', 'guru'])) {
+            $columns[] = Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
                   ->width(250)
-                  ->addClass('text-center'),
-            ];
+                  ->addClass('text-center');
+        }
+
+        return $columns;
     }
 
     /**

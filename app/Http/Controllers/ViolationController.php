@@ -5,10 +5,28 @@ namespace App\Http\Controllers;
 use App\DataTables\violationsDataTable;
 use Illuminate\Http\Request;
 use App\Models\Violation;
+use App\Models\Student;
 use Illuminate\Support\Str;
 
 class ViolationController extends Controller
 {
+    /**
+     * Constructor to handle authorization.
+     */
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $user = $request->user();
+            // Cek apakah user memiliki role 'admin' atau 'guru'
+            // Asumsi: User memiliki relasi 'role' ke model Role yang punya kolom 'role_name'
+            if (!$user || !in_array(optional($user->role)->role_name, ['admin', 'guru'])) {
+                abort(403, 'Akses ditolak. Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            }
+
+            return $next($request);
+        })->except(['index', 'show', 'searchStudent']);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -41,6 +59,11 @@ class ViolationController extends Controller
 
        ]);
        
+       $studentExists = Student::where('nis', $request->nis)->where('nama_siswa', $request->nama_siswa)->exists();
+       if (!$studentExists) {
+           return redirect()->back()->withInput()->withErrors(['nis' => 'Data siswa dengan NIS dan Nama tersebut tidak ditemukan di database siswa.']);
+       }
+
        $existingStudent = Violation::where('nis', $request->nis)->first();
        if ($existingStudent && $existingStudent->nama_siswa !== $request->nama_siswa) {
            return redirect()->back()->withInput()->withErrors(['nama_siswa' => 'NIS ' . $request->nis . ' sudah terdaftar dengan nama ' . $existingStudent->nama_siswa . '. Harap gunakan nama yang sesuai.']);
@@ -138,10 +161,9 @@ class ViolationController extends Controller
     public function searchStudent(Request $request)
     {
         $query = $request->get('query');
-        $students = Violation::select('nis', 'nama_siswa')
+        $students = Student::select('nis', 'nama_siswa', 'kelas')
                     ->where('nis', 'LIKE', "%{$query}%")
                     ->orWhere('nama_siswa', 'LIKE', "%{$query}%")
-                    ->distinct()
                     ->limit(10)
                     ->get();
         return response()->json($students);

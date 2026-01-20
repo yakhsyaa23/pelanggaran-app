@@ -7,7 +7,9 @@
                 <h1>Daftar Pelanggaran Siswa</h1>
             </div>
             <div class="col text-end">
+                @if(auth()->check() && in_array(auth()->user()->role->role_name, ['admin', 'guru']))
                 <a href="{{ route('violations.create') }}" class="btn btn-primary">Tambah Pelanggaran</a>
+                @endif
             </div>
         </div>
         <div class="card-body">

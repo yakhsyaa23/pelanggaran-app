@@ -35,9 +35,9 @@
                     <label>Kategori Pelanggaran</label>
                     <select id="kategori_pelanggaran" name="kategori_pelanggaran" class="form-control">
                         <option value="">-- Pilih Kategori --</option>
-                        <option value="Ringan">Ringan (10 Point)</option>
-                        <option value="Sedang">Sedang (25 Point)</option>
-                        <option value="Berat">Berat (50 Point)</option>
+                        <option value="Ringan">Ringan</option>
+                        <option value="Sedang">Sedang</option>
+                        <option value="Berat">Berat</option>
                     </select>
                 </div>
 

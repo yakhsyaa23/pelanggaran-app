@@ -36,9 +36,9 @@
                     <label>Kategori Pelanggaran</label>
                     <select id="kategori_pelanggaran" name="kategori_pelanggaran" class="form-control">
                         <option value="">-- Pilih Kategori --</option>
-                        <option value="Ringan" {{ old('kategori_pelanggaran', $violation->kategori_pelanggaran) == 'Ringan' ? 'selected' : '' }}>Ringan (10 Point)</option>
-                        <option value="Sedang" {{ old('kategori_pelanggaran', $violation->kategori_pelanggaran) == 'Sedang' ? 'selected' : '' }}>Sedang (25 Point)</option>
-                        <option value="Berat" {{ old('kategori_pelanggaran', $violation->kategori_pelanggaran) == 'Berat' ? 'selected' : '' }}>Berat (50 Point)</option>
+                        <option value="Ringan" {{ old('kategori_pelanggaran', $violation->kategori_pelanggaran) == 'Ringan' ? 'selected' : '' }}>Ringan</option>
+                        <option value="Sedang" {{ old('kategori_pelanggaran', $violation->kategori_pelanggaran) == 'Sedang' ? 'selected' : '' }}>Sedang</option>
+                        <option value="Berat" {{ old('kategori_pelanggaran', $violation->kategori_pelanggaran) == 'Berat' ? 'selected' : '' }}>Berat</option>
                     </select>
                 </div>
 
