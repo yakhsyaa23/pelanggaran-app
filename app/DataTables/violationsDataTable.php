@@ -39,7 +39,9 @@ class violationsDataTable extends DataTable
      */
     public function query(violation $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()
+            ->leftJoin('students', 'violations.nis', '=', 'students.nis')
+            ->select('violations.*', 'students.kelas');
     }
 
     /**
@@ -72,9 +74,11 @@ class violationsDataTable extends DataTable
             Column::make('id')
                     ->title('#')
                     ->render('meta.row + meta.settings._iDisplayStart + 1;')
-                    ->width(100),
-            Column::make('nis'),
-            Column::make('nama_siswa'),
+                    ->width(100)
+                    ->name('violations.id'),
+            Column::make('nis')->name('violations.nis'),
+            Column::make('nama_siswa')->name('violations.nama_siswa'),
+            Column::make('kelas')->title('Kelas')->name('students.kelas'),
             Column::make('tgl_pelanggaran')->title('Tanggal Pelanggaran'),
             Column::make('kategori_pelanggaran'),
             Column::make('point_pelanggaran'),
