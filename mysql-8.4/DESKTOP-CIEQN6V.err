@@ -1,0 +1,111 @@
+2026-01-15T09:44:14.483635Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2026-01-15T09:44:14.512573Z 0 [System] [MY-013169] [Server] C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysqld.exe (mysqld 8.4.3) initializing of server in progress as process 608
+2026-01-15T09:44:14.613264Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-01-15T09:44:15.080516Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-01-15T09:44:16.555156Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: C:\laragon\bin\mysql\mysql-8.4.3-winx64\lib\private\.
+2026-01-15T09:44:17.673743Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2026-01-15T09:44:19.709836Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2026-01-15T10:10:28.931058Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2026-01-15T10:10:28.943839Z 0 [System] [MY-013169] [Server] c:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysqld.exe (mysqld 8.4.3) initializing of server in progress as process 17540
+2026-01-15T10:10:28.955623Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files in it. Aborting.
+2026-01-15T10:10:28.955916Z 0 [ERROR] [MY-013236] [Server] The designated data directory D:\pelanggaran-app\mysql-8.4\ is unusable. You can remove all files that the server added to it.
+2026-01-15T10:10:28.958704Z 0 [ERROR] [MY-010119] [Server] Aborting
+2026-01-15T10:10:28.963101Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2026-01-18T07:29:03.737738Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2026-01-18T07:29:03.946467Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2026-01-18T07:29:03.946594Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysqld (mysqld 8.4.3) starting as process 17292
+2026-01-18T07:29:04.033639Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-01-18T07:29:04.649886Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-01-18T07:29:04.944142Z 0 [Warning] [MY-011311] [Server] Plugin mysqlx reported: 'All I/O interfaces are disabled, X Protocol won't be accessible'
+2026-01-18T07:29:05.295182Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: C:\laragon\bin\mysql\mysql-8.4.3-winx64\lib\private\.
+2026-01-18T07:29:05.314839Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-01-18T07:29:05.315563Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-01-18T07:29:05.363590Z 0 [System] [MY-010931] [Server] C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysqld: ready for connections. Version: '8.4.3'  socket: ''  port: 0  MySQL Community Server - GPL.
+2026-01-18T07:29:05.366102Z 0 [ERROR] [MY-010131] [Server] TCP/IP, --shared-memory, or --named-pipe should be configured on NT OS
+2026-01-18T07:29:05.366993Z 0 [ERROR] [MY-010119] [Server] Aborting
+2026-01-18T07:29:06.545576Z 0 [ERROR] [MY-013183] [InnoDB] Assertion failure: trx0sys.cc:644:UT_LIST_GET_LEN(trx_sys->mysql_trx_list) == 0 thread 15940
+InnoDB: We intentionally generate a memory trap.
+InnoDB: Submit a detailed bug report to http://bugs.mysql.com.
+InnoDB: If you get repeated assertion failures or crashes, even
+InnoDB: immediately after the mysqld startup, there may be
+InnoDB: corruption in the InnoDB tablespace. Please refer to
+InnoDB: http://dev.mysql.com/doc/refman/8.4/en/forcing-innodb-recovery.html
+InnoDB: about forcing recovery.
+2026-01-18T07:29:06Z UTC - mysqld got exception 0x16 ;
+Most likely, you have hit a bug, but this error can also be caused by malfunctioning hardware.
+Thread pointer: 0x0
+Attempting backtrace. You can use the following information to find out
+where mysqld died. If you see no messages after this, something went
+terribly wrong...
+7ff6d343d988    mysqld.exe!?my_print_stacktrace@@YAXPEBEK@Z()
+7ff6d25fb991    mysqld.exe!?my_server_abort@@YAXXZ()
+7ff6d25fb6d3    mysqld.exe!?my_server_abort@@YAXXZ()
+7ff6d342826a    mysqld.exe!?my_abort@@YAXXZ()
+7ff6d35fb359    mysqld.exe!?zstd_mem_res_free@Zstd_dec@compression@event@binlog@mysql@@CAXPEAX0@Z()
+7ff6d36fc2ee    mysqld.exe!?zstd_mem_res_free@Zstd_dec@compression@event@binlog@mysql@@CAXPEAX0@Z()
+7ff6d35b9b4f    mysqld.exe!?zstd_mem_res_free@Zstd_dec@compression@event@binlog@mysql@@CAXPEAX0@Z()
+7ff6d349986b    mysqld.exe!?zstd_mem_res_free@Zstd_dec@compression@event@binlog@mysql@@CAXPEAX0@Z()
+7ff6d247baab    mysqld.exe!?ha_finalize_handlerton@@YAHPEAUst_plugin_int@@@Z()
+7ff6d2497714    mysqld.exe!?is_non_persistent@sys_var_pluginvar@@UEAA_NXZ()
+7ff6d249d4f8    mysqld.exe!?plugin_unlock_list@@YAXPEAVTHD@@PEAPEAUst_plugin_int@@_K@Z()
+7ff6d249bfa9    mysqld.exe!?plugin_shutdown@@YAXXZ()
+7ff6d23eff17    mysqld.exe!?claim_memory_ownership@Log_event@@UEAAX_N@Z()
+7ff6d2402a57    mysqld.exe!?type@LogEvent@@QEAAAEAV1@W4enum_log_type@@@Z()
+7ff6d240145c    mysqld.exe!?setup_conn_event_handler_threads@@YAXXZ()
+7ff6d2404e74    mysqld.exe!?win_main@@YAHHPEAPEAD@Z()
+7ff6d23fe3e5    mysqld.exe!?mysql_service@@YAHPEAX@Z()
+7ff6d23fe9fb    mysqld.exe!?mysqld_main@@YAHHPEAPEAD@Z()
+7ff6d3c87054    mysqld.exe!?vio_write_shared_memory@@YA_KPEAUVio@@PEBE_K@Z()
+7ff9b2f8e8d7    KERNEL32.DLL!BaseThreadInitThunk()
+7ff9b3d4c53c    ntdll.dll!RtlUserThreadStart()
+The manual page at http://dev.mysql.com/doc/mysql/en/crashing.html contains
+information that should help you find out what is causing the crash.
+2026-01-18T07:55:36.645429Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2026-01-18T07:55:36.912986Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2026-01-18T07:55:36.913943Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysqld (mysqld 8.4.3) starting as process 15028
+2026-01-18T07:55:37.007309Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-01-18T07:55:37.456204Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-01-18T07:55:37.840108Z 0 [Warning] [MY-011311] [Server] Plugin mysqlx reported: 'All I/O interfaces are disabled, X Protocol won't be accessible'
+2026-01-18T07:55:38.199432Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: C:\laragon\bin\mysql\mysql-8.4.3-winx64\lib\private\.
+2026-01-18T07:55:38.226128Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-01-18T07:55:38.226664Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-01-18T07:55:38.270258Z 0 [System] [MY-010931] [Server] C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysqld: ready for connections. Version: '8.4.3'  socket: ''  port: 0  MySQL Community Server - GPL.
+2026-01-18T07:55:38.272111Z 0 [ERROR] [MY-010131] [Server] TCP/IP, --shared-memory, or --named-pipe should be configured on NT OS
+2026-01-18T07:55:38.272641Z 0 [ERROR] [MY-010119] [Server] Aborting
+2026-01-18T07:55:39.445889Z 0 [ERROR] [MY-013183] [InnoDB] Assertion failure: trx0sys.cc:644:UT_LIST_GET_LEN(trx_sys->mysql_trx_list) == 0 thread 19496
+InnoDB: We intentionally generate a memory trap.
+InnoDB: Submit a detailed bug report to http://bugs.mysql.com.
+InnoDB: If you get repeated assertion failures or crashes, even
+InnoDB: immediately after the mysqld startup, there may be
+InnoDB: corruption in the InnoDB tablespace. Please refer to
+InnoDB: http://dev.mysql.com/doc/refman/8.4/en/forcing-innodb-recovery.html
+InnoDB: about forcing recovery.
+2026-01-18T07:55:39Z UTC - mysqld got exception 0x16 ;
+Most likely, you have hit a bug, but this error can also be caused by malfunctioning hardware.
+Thread pointer: 0x0
+Attempting backtrace. You can use the following information to find out
+where mysqld died. If you see no messages after this, something went
+terribly wrong...
+7ff78541d988    mysqld.exe!?my_print_stacktrace@@YAXPEBEK@Z()
+7ff7845db991    mysqld.exe!?my_server_abort@@YAXXZ()
+7ff7845db6d3    mysqld.exe!?my_server_abort@@YAXXZ()
+7ff78540826a    mysqld.exe!?my_abort@@YAXXZ()
+7ff7855db359    mysqld.exe!?zstd_mem_res_free@Zstd_dec@compression@event@binlog@mysql@@CAXPEAX0@Z()
+7ff7856dc2ee    mysqld.exe!?zstd_mem_res_free@Zstd_dec@compression@event@binlog@mysql@@CAXPEAX0@Z()
+7ff785599b4f    mysqld.exe!?zstd_mem_res_free@Zstd_dec@compression@event@binlog@mysql@@CAXPEAX0@Z()
+7ff78547986b    mysqld.exe!?zstd_mem_res_free@Zstd_dec@compression@event@binlog@mysql@@CAXPEAX0@Z()
+7ff78445baab    mysqld.exe!?ha_finalize_handlerton@@YAHPEAUst_plugin_int@@@Z()
+7ff784477714    mysqld.exe!?is_non_persistent@sys_var_pluginvar@@UEAA_NXZ()
+7ff78447d4f8    mysqld.exe!?plugin_unlock_list@@YAXPEAVTHD@@PEAPEAUst_plugin_int@@_K@Z()
+7ff78447bfa9    mysqld.exe!?plugin_shutdown@@YAXXZ()
+7ff7843cff17    mysqld.exe!?claim_memory_ownership@Log_event@@UEAAX_N@Z()
+7ff7843e2a57    mysqld.exe!?type@LogEvent@@QEAAAEAV1@W4enum_log_type@@@Z()
+7ff7843e145c    mysqld.exe!?setup_conn_event_handler_threads@@YAXXZ()
+7ff7843e4e74    mysqld.exe!?win_main@@YAHHPEAPEAD@Z()
+7ff7843de3e5    mysqld.exe!?mysql_service@@YAHPEAX@Z()
+7ff7843de9fb    mysqld.exe!?mysqld_main@@YAHHPEAPEAD@Z()
+7ff785c67054    mysqld.exe!?vio_write_shared_memory@@YA_KPEAUVio@@PEBE_K@Z()
+7ff9b2f8e8d7    KERNEL32.DLL!BaseThreadInitThunk()
+7ff9b3d4c53c    ntdll.dll!RtlUserThreadStart()
+The manual page at http://dev.mysql.com/doc/mysql/en/crashing.html contains
+information that should help you find out what is causing the crash.
