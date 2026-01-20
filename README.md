@@ -39,6 +39,9 @@ Berikut tampilannya :
 
 
 
+Framework : Laravel
+Library : yajra datatable, laravel Ui
+
 
    
 
